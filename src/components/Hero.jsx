@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Plane, ShoppingBag, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="relative bg-bringit-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -16,8 +19,8 @@ const Hero = () => {
                 transition={{ duration: 0.5 }}
                 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
               >
-                <span className="block xl:inline">Shop global,</span>{' '}
-                <span className="block text-bringit-600 xl:inline">get it local.</span>
+                <span className="block xl:inline">{t('hero.title')}</span>{' '}
+                <span className="block text-bringit-600 xl:inline">{t('hero.subtitle')}</span>
               </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
@@ -25,7 +28,7 @@ const Hero = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
               >
-                Connect with travelers who can bring you products from anywhere in the world. Or earn money by delivering items on your next trip.
+                {t('hero.description')}
               </motion.p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start gap-3">
                 <motion.div
@@ -35,7 +38,7 @@ const Hero = () => {
                 >
                   <Link to="/marketplace" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-bringit-600 hover:bg-bringit-700 md:py-4 md:text-lg shadow-lg shadow-bringit-200/50">
                     <ShoppingBag className="w-5 h-5 mr-2" />
-                    Start Shopping
+                    {t('hero.startShopping')}
                   </Link>
                 </motion.div>
                 <motion.div
@@ -45,7 +48,7 @@ const Hero = () => {
                 >
                   <Link to="/marketplace" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-bringit-700 bg-bringit-100 hover:bg-bringit-200 md:py-4 md:text-lg">
                     <Plane className="w-5 h-5 mr-2" />
-                    Deliver Items
+                    {t('hero.deliverItems')}
                   </Link>
                 </motion.div>
               </div>

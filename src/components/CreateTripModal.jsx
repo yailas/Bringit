@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plane } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const CreateTripModal = ({ isOpen, onClose }) => {
   const { addTrip } = useAppContext();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     from: '',
     to: '',
@@ -48,7 +50,7 @@ const CreateTripModal = ({ isOpen, onClose }) => {
           >
             <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden pointer-events-auto">
               <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50">
-                <h3 className="text-lg font-bold text-gray-900">Post a Trip</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('createTrip.title')}</h3>
                 <button onClick={onClose} className="text-gray-400 hover:text-gray-500">
                   <X className="w-5 h-5" />
                 </button>
@@ -57,7 +59,7 @@ const CreateTripModal = ({ isOpen, onClose }) => {
               <form onSubmit={handleSubmit} className="p-6 space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Traveling From</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">{t('createTrip.travelingFrom')}</label>
                     <input
                       type="text"
                       required
@@ -68,7 +70,7 @@ const CreateTripModal = ({ isOpen, onClose }) => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Traveling To</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">{t('createTrip.travelingTo')}</label>
                     <input
                       type="text"
                       required
@@ -81,7 +83,7 @@ const CreateTripModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Travel Date</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">{t('createTrip.travelDate')}</label>
                   <input
                     type="date"
                     required
@@ -92,15 +94,15 @@ const CreateTripModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Available Capacity</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">{t('createTrip.capacity')}</label>
                   <select
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bringit-500 focus:border-bringit-500 outline-none transition-all"
                     value={formData.capacity}
                     onChange={e => setFormData({...formData, capacity: e.target.value})}
                   >
-                    <option value="Small Bag">Small Bag (e.g. cosmetics)</option>
-                    <option value="Medium Suitcase">Medium Suitcase (e.g. clothes, shoes)</option>
-                    <option value="Large Suitcase">Large Suitcase (e.g. electronics)</option>
+                    <option value="Small Bag">{t('createTrip.smallBag')}</option>
+                    <option value="Medium Suitcase">{t('createTrip.mediumSuitcase')}</option>
+                    <option value="Large Suitcase">{t('createTrip.largeSuitcase')}</option>
                   </select>
                 </div>
 
@@ -109,7 +111,7 @@ const CreateTripModal = ({ isOpen, onClose }) => {
                   className="w-full bg-bringit-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-bringit-700 transition-colors shadow-lg shadow-bringit-200/50 mt-2"
                 >
                   <Plane className="w-5 h-5 inline-block mr-2" />
-                  Post Trip
+                  {t('createTrip.submit')}
                 </button>
               </form>
             </div>

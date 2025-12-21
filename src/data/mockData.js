@@ -14,7 +14,7 @@ export const requests = [
   {
     id: 2,
     title: "Sephora Makeup Set",
-    image: "https://images.unsplash.com/photo-1522335789203-abd1c1cd0d90?auto=format&fit=crop&q=80&w=1000",
+    image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=1000",
     reward: 25,
     price: 120,
     currency: "USD",
