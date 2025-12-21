@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bringit-50: #f0fdf4;
+  --color-bringit-100: #dcfce7;
+  --color-bringit-200: #bbf7d0;
+  --color-bringit-300: #86efac;
+  --color-bringit-400: #4ade80;
+  --color-bringit-500: #22c55e;
+  --color-bringit-600: #16a34a;
+  --color-bringit-700: #15803d;
+  --color-bringit-800: #166534;
+  --color-bringit-900: #14532d;
+}
+
+@layer base {
+  body {
+    @apply antialiased text-slate-900 bg-white;
+  }
+}
